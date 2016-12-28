@@ -1,0 +1,31 @@
+<md-content class="md-padding" layout-xs="column" layout="row" layout-align="center center">
+    <div flex-xs flex-gt-xs="50" layout="column"> 
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                <span class="md-headline">Login page</span>
+                <span class="md-subhead">insert your credentials for continue...</span>
+                </md-card-title-text>
+                
+            </md-card-title>
+            <md-card-body>
+                <div flex-xs flex="100" layout="column" layout-align="center center"> 
+                    <md-input-container style="width:70%">
+                        <label>Username</label>
+                        <input ng-model="user.name">
+                    </md-input-container>
+                    <md-input-container style="width:70%">
+                        <label>Password</label>
+                        <input ng-model="user.password" type="password">
+                    </md-input-container>
+                </div>
+            </md-card-body>
+            <md-card-actions layout="row" layout-align="end center">
+                <label ng-show="$ctrl.error">{{$ctrl.error}}</label>
+                <md-progress-circular ng-show="$ctrl.loadSpinner" class="md-accent md-hue-2" md-diameter="30px"></md-progress-circular>
+                <md-button class="md-raised md-primary md-hue-2" ng-click="$ctrl.doLogin(user)">Login</md-button>
+                
+            </md-card-actions>
+        </md-card>
+    </div>
+</md-content>

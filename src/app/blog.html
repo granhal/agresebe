@@ -1,0 +1,45 @@
+
+
+<md-content class="md-padding" layout-xs="column" layout="row" layout-align="center center">
+    <div flex-xs flex-gt-xs="80" layout="column">
+        <md-card layout-padding>
+            <md-card-title-text>
+                Add post to blog: 
+            </md-card-title-text>
+            <md-card-content>
+            <div>
+                <md-input-container>
+                    <label>Title</label>
+                    <input ng-model="post.title">
+                </md-input-container>
+
+                <md-input-container>
+                    <label>Body</label>
+                    <input ng-model="post.body">
+                </md-input-container>
+            
+            <md-button class="md-raised md-primary" ng-click="$ctrl.addPost(post)">Insert post</md-button>
+            </div>
+            </md-card-content>
+        </md-card>
+
+      <md-card ng-repeat="post in $ctrl.posts track by $index">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{post.title}}</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <p>
+            {{post.body}}
+            <div ng-repeat="photo in post.photos track by $index"> 
+                <img ng-src="http://blog.agresebe.com{{ photo.image }}" class="md-card-image" style="width:50px">
+            </div>
+          </p>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button class="md-raised md-warn" ng-click="$ctrl.delPost(post.id)">Delete</md-button>
+        </md-card-actions>
+      </md-card>
+    </div>
+  </md-content>
